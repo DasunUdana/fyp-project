@@ -1,0 +1,25 @@
+
+.active {
+    color: blue !important;
+}
+
+nav {
+    padding: 15px;
+    background-color: black;
+}
+
+nav > div {
+    padding: 5px 10px;
+    color: white;
+    display: table-cell;
+    width: 100%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    outline: 0;
+    white-space: nowrap;
+}
+
+.sub-nav {
+    padding: 5px 15px;
+    background: #9c9898;
+}

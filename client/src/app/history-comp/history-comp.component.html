@@ -1,0 +1,11 @@
+<div class="outer-container">
+    <section>
+        <label class="portal-header">Vehicle Change history {{carId}}</label>
+    </section>
+
+    <section style="margin-top: 35px; overflow-x: scroll;">
+        <div style="float: none; display: table-cell; padding-right: 40px;" *ngFor="let item of vehicleArray" class="vehicle-item">
+            <app-detailed-vehicle [vehicleObj]="item"></app-detailed-vehicle>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,100 @@
+/* You can add global styles to this file, and also import other style files */
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    background: url(assets/back.jpg);
+    color: white;
+}
+
+.portal-header {
+    font-size: 25px;
+    color: white;
+}
+
+// ============================================ Scroll bar ==============================================
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #000000;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #000000;
+}
+::-webkit-scrollbar-track {
+  background: #666666;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #666666;
+}
+::-webkit-scrollbar-track:active {
+  background: #333333;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+// ================================= Inputbox ==============
+
+input {
+  font-size: 16px;
+  border-width: 1px;
+  border-style: solid;
+  background-color: #00000091;
+  border-color: #000000;
+  color: #ffffff;
+  padding: 3px 10px;
+  box-shadow: 5px 8px 7px 0px rgba(42, 42, 42, 0.75);
+  border-radius: 25px;
+  outline: none;
+}
+
+table {
+  background: #00000042;
+    padding: 25px;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.searchButton-second {
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #2f3640;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+  outline: none;
+}
+
+.submit button {
+  margin: 0;
+  background: #2ab17a;
+  padding: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: 1px black solid;
+  outline: none;
+  color: black;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  min-width: 150px;
+}

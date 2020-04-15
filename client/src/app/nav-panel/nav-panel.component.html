@@ -1,0 +1,24 @@
+<nav>
+    <div routerLink="/" style="font-size: 2rem;">Vehicle Information System</div>
+    <div *ngIf='isLoggedIn === true' (click)="onLogout()">Logout</div>
+    <div *ngIf='isLoggedIn === false' routerLink="/login">Login</div>
+</nav>
+
+<nav *ngIf='logLevel === 1' class="sub-nav">
+    <div >Admin Portal</div>
+    <div routerLinkActive="active" routerLink="/vehicle">Vehicle Search</div>
+    <div routerLinkActive="active" routerLink="/add">Add Vehicle</div>
+    <div routerLinkActive="active" routerLink="/edit">Edit Vehicle</div>
+</nav>
+
+<nav *ngIf='logLevel === 3' class="sub-nav">
+    <div >Insuarence Portal</div>
+    <div routerLinkActive="active" routerLink="/vehicle">Vehicle Search</div>
+    <div routerLinkActive="active" routerLink="/accident">Add Accident Detail</div>
+</nav>
+
+<nav *ngIf='logLevel === 2' class="sub-nav">
+    <div >Vehicle Repare Portal</div>
+    <div routerLinkActive="active" routerLink="/vehicle">Vehicle Search</div>
+    <div routerLinkActive="active" routerLink="/modification">Add Modidfication Detail</div>
+</nav>

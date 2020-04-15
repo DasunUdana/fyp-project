@@ -1,0 +1,20 @@
+<div class="outer-container">
+    <section style="position: relative;">
+        <label class="portal-header">Search Vehicle</label>
+        <div class="searchBox">
+            <input class="searchInput"type="text" name="" [(ngModel)]="vehicleSearch" placeholder="Search">
+            <button class="searchButton margin-zero" (click)= "onSearch()">
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+    </section>
+    <section>
+        <span class="error">{{errorMsg}}</span>
+    </section>
+
+    <section>
+        <div *ngFor="let item of vehicleArray" class="vehicle-item">
+            <app-detailed-vehicle [vehicleObj]="item"></app-detailed-vehicle>
+        </div>
+    </section>
+</div>

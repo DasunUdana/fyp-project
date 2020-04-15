@@ -1,0 +1,34 @@
+.outer-container {
+    padding: 40px 5px 5px 5px;
+}
+
+section {
+    padding: 5px;
+}
+
+table {
+    div {
+        display: table-row;
+
+        label {
+            display: table-cell;
+            width: 50%;
+        }
+
+        input {
+            display: table-cell;
+        }
+    }
+}
+
+button {
+    margin: 5px 10px;
+}
+
+.succes {
+    color: green;
+}
+
+.error {
+    color: red;
+}

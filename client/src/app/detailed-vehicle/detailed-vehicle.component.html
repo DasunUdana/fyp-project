@@ -1,0 +1,50 @@
+<div class="container">
+    <section class="header">
+        <label>{{vehicle.lincenseNo}}</label>
+        <div class="history-button" [routerLink]="['/history', vehicle.lincenseNo]">
+            <i class="fa fa-history"></i>
+        </div>
+    </section>
+    <section class="details">
+        <div>
+            <span>Make : </span>
+            <span>{{vehicle.make}}</span>
+        </div>
+        <div>
+            <span>Model : </span>
+            <span>{{vehicle.model}}</span>
+        </div>
+        <div>
+            <span>Color : </span>
+            <span>{{vehicle.color}}</span>
+        </div>
+        <div>
+            <span>Engine No : </span>
+            <span>{{vehicle.engineNo}}</span>
+        </div>
+        <div>
+            <span>Owner Name : </span>
+            <span>{{vehicle.ownerName}}</span>
+        </div>
+        <div>
+            <span>Owner Id : </span>
+            <span>{{vehicle.ownerNationalId}}</span>
+        </div>
+        <div>
+            <span>Province : </span>
+            <span>{{vehicle.registeredProvince}}</span>
+        </div>
+    </section>
+    <section class="accidents array-section">
+        <label>Accidents</label>
+        <ol>
+            <li *ngFor="let item of vehicle.accidents">{{item}}</li>
+        </ol>
+    </section>
+    <section class="modification no-border array-section">
+        <label>Modifications</label>
+        <ol>
+            <li *ngFor="let item of vehicle.modifications">{{item}}</li>
+        </ol>
+    </section>
+</div>

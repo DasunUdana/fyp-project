@@ -1,0 +1,77 @@
+<div class="outer-container">
+    <section>
+        <label class="portal-header">Edit Vehicle</label>
+    </section>
+    <section>
+        <input id="vehicleSearch" name="vehicleSearch" [(ngModel)]="vehicleSearch">
+        <button (click)= "onSearch()" class="searchButton-second">
+            <i class="fa fa-search"></i>
+        </button>
+    </section>
+
+    <section class="{{msgType}}">
+        {{responseMsg}}
+    </section>
+
+    <section>
+        <table>
+            <div>
+                <label>License No</label>
+                <input name="license" [(ngModel)]="license">
+            </div>
+    
+            <div>
+                <label>Make</label>
+                <input name="make" [(ngModel)]="make">
+            </div>
+    
+            <div>
+                <label>Model</label>
+                <input name="model" [(ngModel)]="model">
+            </div>
+    
+            <div>
+                <label>Color</label>
+                <input name="color" [(ngModel)]="color">
+            </div>
+    
+            <div>
+                <label>Engine No</label>
+                <input name="engineNo" [(ngModel)]="engineNo">
+            </div>
+    
+            <div>
+                <label>Owner Name</label>
+                <input name="ownerName" [(ngModel)]="ownerName">
+            </div>
+    
+            <div>
+                <label>Owner National Id</label>
+                <input name="ownerNationalId" [(ngModel)]="ownerNationalId"> 
+            </div>
+    
+            <div>
+                <label>Registered Province</label>
+                <input name="registeredProvince" [(ngModel)]="registeredProvince">
+            </div>
+    
+            <div>
+                <label>Accidents</label>
+                <ol>
+                    <li *ngFor="let item of accidents">{{item}}</li>
+                </ol>
+            </div>
+    
+            <div>
+                <label>Modifications</label>
+                <ol>
+                    <li *ngFor="let item of modifications">{{item}}</li>
+                </ol>
+            </div>
+        </table>
+    </section>
+
+    <section class="submit">
+        <button style="margin: 0;" [disabled]="isDisableEdit" (click)= "onSubmit()">Submit Vehicle details</button>
+    </section>
+</div>

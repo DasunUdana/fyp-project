@@ -1,0 +1,57 @@
+<div class="outer-container">
+    <section>
+        <label class="portal-header">Add New Vehicle</label>
+    </section>
+
+    <section class="{{msgType}}">
+        {{responseMsg}}
+    </section>
+
+    <section>
+        <table>
+            <div>
+                <label>License No</label>
+                <input name="license" [(ngModel)]="license">
+            </div>
+    
+            <div>
+                <label>Make</label>
+                <input name="make" [(ngModel)]="make">
+            </div>
+    
+            <div>
+                <label>Model</label>
+                <input name="model" [(ngModel)]="model">
+            </div>
+    
+            <div>
+                <label>Color</label>
+                <input name="color" [(ngModel)]="color">
+            </div>
+    
+            <div>
+                <label>Engine No</label>
+                <input name="engineNo" [(ngModel)]="engineNo">
+            </div>
+    
+            <div>
+                <label>Owner Name</label>
+                <input name="ownerName" [(ngModel)]="ownerName">
+            </div>
+    
+            <div>
+                <label>Owner National Id</label>
+                <input name="ownerNationalId" [(ngModel)]="ownerNationalId"> 
+            </div>
+    
+            <div>
+                <label>Registered Province</label>
+                <input name="registeredProvince" [(ngModel)]="registeredProvince">
+            </div>
+        </table>
+    </section>
+
+    <section class="submit">
+        <button (click)= "onSubmit()">Submit Vehicle</button>
+    </section>
+</div>
