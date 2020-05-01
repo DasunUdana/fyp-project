@@ -1,1 +1,47 @@
-<p>register works!</p>
+<div class="outer-container">
+    <section>
+        <label class="portal-header">Register Page</label>
+    </section>
+    <section>
+        <table>
+            <div>
+                <label>User Name</label>
+                <input name="username" [(ngModel)]="username">
+            </div>
+    
+            <div>
+                <label>Password</label>
+                <input name="password" type="password" [(ngModel)]="password">
+            </div>
+    
+            <div>
+                <label>Re-Type Password</label>
+                <input name="repassword" type="password" [(ngModel)]="repassword">
+            </div>
+    
+            <div>
+                <label>National Id</label>
+                <input name="nationalId" [(ngModel)]="nationalId">
+            </div>
+    
+            <div>
+                <label>Mobile</label>
+                <input name="mobile" [(ngModel)]="mobile">
+            </div>
+    
+            <div>
+                <label>Role</label>
+                <select class="select" name="role" [(ngModel)]="role">
+                    <option value="0" selected>-select-</option>
+                    <option value="1">Admin</option>
+                    <option value="2">Accident</option>
+                    <option value="3">Modification</option>
+                </select>
+            </div>
+        </table>
+    </section>
+
+    <section class="submit" >
+        <button (click)= "onSubmit()">Register</button>
+    </section>
+</div>

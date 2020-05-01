@@ -12,8 +12,6 @@ export class AccidentCompComponent implements OnInit {
   vehicle: vehicle = new vehicle();
   a1 = '';
 
-  msgType = '';
-  responseMsg = '';
 
   isDisableUpdateButton = true;
 
@@ -22,8 +20,6 @@ export class AccidentCompComponent implements OnInit {
   ngOnInit(): void {}
 
   onSearch() : void {
-    this.msgType = '';
-    this.responseMsg = '';
 
     if (this.vehicleSearch && this.vehicleSearch !== '' && this.vehicleSearch.length === 7) {
       this.service.searchVehicle(this.vehicleSearch).subscribe(async (result: any) => {
@@ -34,18 +30,14 @@ export class AccidentCompComponent implements OnInit {
         }
       });
     } else {
-      this.msgType = 'error';
-      this.responseMsg = 'Invalid vehicleNo';
+      this.service.setNotification('error', 'Invalid vehicleNo');
     }
   }
 
   onSubmit(): void {
-    this.responseMsg = '';
-    this.msgType = '';
 
     if (!this.a1 || this.a1 === '') {
-      this.responseMsg = 'Accident details cannot be empty';
-      this.msgType = 'error';
+      this.service.setNotification('error', 'Accident details cannot be empty');
       return;
     }
 
@@ -57,13 +49,13 @@ export class AccidentCompComponent implements OnInit {
 
     this.service.updateVehicle(vehicleObj).subscribe((result: any) => {
       if (result.lincenseNo === vehicleObj.lincenseNo) {
-        this.responseMsg = 'Successfully updated';
-        this.msgType = 'succes';
+        this.service.setNotification('succes', 'Successfully updated');
+
         this.clearForm();
         this.vehicle = {...this.vehicle, ...result}
       } else {
-        this.responseMsg = 'Vehicle updating failed';
-        this.msgType = 'error';
+        this.service.setNotification('error', 'Vehicle updating failed');
+
       }
     });
   }

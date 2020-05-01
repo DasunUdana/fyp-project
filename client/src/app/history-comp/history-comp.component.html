@@ -5,7 +5,8 @@
 
     <section style="margin-top: 35px; overflow-x: scroll;">
         <div style="float: none; display: table-cell; padding-right: 40px;" *ngFor="let item of vehicleArray" class="vehicle-item">
-            <app-detailed-vehicle [vehicleObj]="item"></app-detailed-vehicle>
+            <div style="margin-bottom: 5px;"><span class="number">{{item.state}}</span></div>
+            <app-detailed-vehicle [vehicleObj]="item" ></app-detailed-vehicle>
         </div>
     </section>
 </div>

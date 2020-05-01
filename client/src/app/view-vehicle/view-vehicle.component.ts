@@ -38,7 +38,8 @@ export class ViewVehicleComponent implements OnInit {
         this.showHistoryButton = true;
       });
     } else {
-      this.errorMsg = 'Invalid vehicleNo';
+      // this.errorMsg = 'Invalid vehicleNo';
+      this.service.setNotification('error', 'Invalid vehicleNo');
     }
   }
 }

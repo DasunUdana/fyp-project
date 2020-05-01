@@ -8,6 +8,7 @@ import {BehaviorSubject, Observable} from 'rxjs';
 export class ComServiceService {
   loginLevel: BehaviorSubject<number>;
   isloggedIn: BehaviorSubject<boolean>;
+  msgObj: BehaviorSubject<any>;
 
   credentials = {
     admin: {
@@ -29,6 +30,7 @@ export class ComServiceService {
   constructor(private http: HttpClient) {
     this.loginLevel = new BehaviorSubject<number>(0);
     this.isloggedIn = new BehaviorSubject<boolean>(false);
+    this.msgObj = new BehaviorSubject<any>(false);
   }
 
   getAllVehicles() {
@@ -79,6 +81,15 @@ export class ComServiceService {
   setLogout() {
     this.isloggedIn.next(false);
     this.loginLevel.next(0);
+  }
+
+  setNotification(msgtype: string, msg: string) {
+    let notif = {type: msgtype, msg: msg}
+    this.msgObj.next(notif);
+  }
+
+  getNotification(): Observable<any> {
+    return this.msgObj.asObservable();
   }
 
 }

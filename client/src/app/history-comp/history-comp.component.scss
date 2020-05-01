@@ -24,3 +24,18 @@ button {
 .error {
     color: red;
 }
+
+.number {
+    width: 35px;
+    height: 35px;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 27px;
+    border: 1px black solid;
+    background: #00a200;
+    color: black;
+    font-weight: bolder;
+    font-size: 26px;
+
+}

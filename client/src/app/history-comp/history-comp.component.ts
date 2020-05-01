@@ -16,8 +16,12 @@ export class HistoryCompComponent implements OnInit {
     this.carId = this.route.snapshot.paramMap.get('carId');
 
     this.service.sendHistoryReq(this.carId).subscribe((result: any) => {
+      let state = result.length;
+
       result.forEach(element => {
+        element['state'] = state
         this.vehicleArray.push(element);
+        state--;
       });
     });
   }

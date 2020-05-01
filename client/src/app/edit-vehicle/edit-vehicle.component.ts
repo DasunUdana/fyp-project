@@ -19,8 +19,6 @@ export class EditVehicleComponent implements OnInit {
   registeredProvince = '';
   accidents = [];
   modifications = [];
-  responseMsg = '';
-  msgType = '';
 
   isDisableEdit = true;
 
@@ -30,7 +28,6 @@ export class EditVehicleComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.responseMsg = '';
 
     if (!this.validateVehicleDetails()) {
       return;
@@ -51,12 +48,10 @@ export class EditVehicleComponent implements OnInit {
 
     this.service.updateVehicle(vehicleObj).subscribe((result: any) => {
       if (result.lincenseNo === vehicleObj.lincenseNo) {
-        this.responseMsg = 'Successfully updated';
-        this.msgType = 'succes';
+        this.service.setNotification('succes', 'Successfully updated');
         this.clearForm();
       } else {
-        this.responseMsg = 'Vehicle updating failed';
-        this.msgType = 'error';
+        this.service.setNotification('error', 'Vehicle updating failed');
       }
     });
   }
@@ -76,9 +71,6 @@ export class EditVehicleComponent implements OnInit {
   }
 
   onSearch() : void {
-    this.msgType = '';
-    this.responseMsg = '';
-
     if (this.vehicleSearch && this.vehicleSearch !== '' && this.vehicleSearch.length === 7) {
       this.service.searchVehicle(this.vehicleSearch).subscribe(async (result: any) => {
         if (result) {
@@ -96,23 +88,23 @@ export class EditVehicleComponent implements OnInit {
         }
       });
     } else {
-      this.msgType = 'error';
-      this.responseMsg = 'Invalid vehicleNo';
+      this.service.setNotification('error', 'Invalid vehicleNo');
     }
   }
 
   validateVehicleDetails(): boolean {
-    this.msgType = 'error';
     let isValid = true;
 
     if (!this.license || this.license === '' || this.license.length !== 7) {
       isValid = false;
-      this.responseMsg = 'Invalid vehicleNo';
+      this.service.setNotification('error', 'Invalid vehicleNo');
+
     }
 
     if (this.make === '' || this.model === '' || this.color === '' || this.engineNo === '' || this.ownerName === '' || this.ownerNationalId === '' || this.registeredProvince === '') {
       isValid = false;
-      this.responseMsg = 'All fields are mandetory. Please provide adequate information';
+      this.service.setNotification('error', 'All fields are mandetory. Please provide adequate information');
+
     }
 
     return isValid;

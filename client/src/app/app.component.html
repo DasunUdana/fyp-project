@@ -1,2 +1,11 @@
 <app-nav-panel></app-nav-panel>
 <router-outlet></router-outlet>
+<div class="notification-panel animated" [className]="notificationClass">
+    <div class="msg-type-icon" [className]="isError ? 'msg-type-icon error' : 'msg-type-icon success'">
+        <i class="fa fa-exclamation-circle"></i>
+    </div>
+    <div class="msg">{{msg}}</div>
+    <div (click)= "clearNotification()" class="msg-type-icon" [className]="isError ? 'msg-type-icon error' : 'msg-type-icon success'">
+        <i class="fa fa-times curser-pointer"></i>
+    </div> 
+</div>

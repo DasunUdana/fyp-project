@@ -15,8 +15,6 @@ export class AddVehicleComponent implements OnInit {
   ownerName = '';
   ownerNationalId = '';
   registeredProvince = '';
-  responseMsg = '';
-  msgType = '';
 
   constructor(private service: ComServiceService) { }
 
@@ -24,7 +22,6 @@ export class AddVehicleComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.responseMsg = '';
 
     if (!this.validateVehicleDetails()) {
       return;
@@ -45,12 +42,11 @@ export class AddVehicleComponent implements OnInit {
 
     this.service.addNewVehicle(vehicleObj).subscribe((result: any) => {
       if (result.lincenseNo === vehicleObj.lincenseNo) {
-        this.responseMsg = 'Successfully added';
-        this.msgType = 'succes';
+        this.service.setNotification('succes', 'Successfully added');
+
         this.clearForm();
       } else {
-        this.responseMsg = 'Vehicle adding failed';
-        this.msgType = 'error';
+        this.service.setNotification('error', 'Vehicle adding failed');
       }
     });
   }
@@ -67,17 +63,16 @@ export class AddVehicleComponent implements OnInit {
   }
 
   validateVehicleDetails(): boolean {
-    this.msgType = 'error';
     let isValid = true;
 
     if (!this.license || this.license === '' || this.license.length !== 7) {
       isValid = false;
-      this.responseMsg = 'Invalid vehicleNo';
+      this.service.setNotification('error', 'Invalid vehicleNo');
     }
 
     if (this.make === '' || this.model === '' || this.color === '' || this.engineNo === '' || this.ownerName === '' || this.ownerNationalId === '' || this.registeredProvince === '') {
       isValid = false;
-      this.responseMsg = 'All fields are mandetory. Please provide adequate information';
+      this.service.setNotification('error', 'All fields are mandetory. Please provide adequate information');
     }
 
     return isValid;
